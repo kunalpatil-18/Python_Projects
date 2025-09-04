@@ -11,10 +11,9 @@ def check_winner():
             buttons[combo[1]].config(bg="green")
             buttons[combo[2]].config(bg="green")
             messagebox.showinfo("Tic-Tac-Toe", f"Player {buttons[combo[0]]['text']} wins!")
-            winner = True   # ✅ stop further moves
+            winner = True
             return
 
-    # ✅ Check draw (if all boxes are filled and no winner)
     if all(button["text"] != "" for button in buttons) and not winner:
         messagebox.showinfo("Tic-Tac-Toe", "It's a Draw!")
         winner = True
@@ -24,7 +23,7 @@ def button_click(index):
     if buttons[index].cget("text") == "" and not winner:
         buttons[index].config(text=current_player)
         check_winner()
-        if not winner:  # only switch if no winner yet
+        if not winner: 
             toggle_player()
 
 def toggle_player():
